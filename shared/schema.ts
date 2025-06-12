@@ -31,14 +31,17 @@ export const appointments = pgTable("appointments", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
-export const insertDoctorSchema = createInsertSchema(doctors).omit({
-  id: true,
-});
+export const insertDoctorSchema = createInsertSchema(doctors)
+  .omit({ id: true })
+  .extend({
+    rating: z.number().optional() // allow it to be omitted in JS/TS
+  });
 
-export const insertAppointmentSchema = createInsertSchema(appointments).omit({
-  id: true,
-  createdAt: true,
-});
+export const insertAppointmentSchema = createInsertSchema(appointments)
+  .omit({ id: true, createdAt: true })
+  .extend({
+    status: z.string().optional()
+  });
 
 export type InsertDoctor = z.infer<typeof insertDoctorSchema>;
 export type Doctor = typeof doctors.$inferSelect;
