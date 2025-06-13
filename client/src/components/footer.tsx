@@ -14,7 +14,7 @@ export function Footer() {
             <p className="text-gray-300 mb-6 max-w-md leading-relaxed">
               Connecting patients with the right healthcare providers through intelligent matching and seamless booking experiences.
             </p>
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-medical-blue transition-colors">
                 <FaFacebookF className="text-xl" />
               </a>
@@ -24,7 +24,7 @@ export function Footer() {
               <a href="#" className="text-gray-400 hover:text-medical-blue transition-colors">
                 <FaLinkedinIn className="text-xl" />
               </a>
-            </div>
+            </div> */}
           </div>
 
           <div>
@@ -51,10 +51,10 @@ export function Footer() {
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">© 2024 MedConnect. All rights reserved.</p>
-            <div className="flex items-center space-x-6 mt-4 md:mt-0">
+            {/* <div className="flex items-center space-x-6 mt-4 md:mt-0">
               <span className="text-sm text-gray-400">Emergency: 911</span>
               <span className="text-sm text-gray-400">Support: 1-800-MED-HELP</span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -74,7 +74,7 @@ export default function Home() {
             <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
               Find Your Perfect Healthcare Provider
             </h1>
-            <p className="text-lg md:text-xl mb-8 text-blue-100 leading-relaxed">
+            <p className="text-lg md:text-xl mb-8 text-white leading-relaxed">
               Discover personalized doctor recommendations based on your health
               needs, location, and preferences. Book appointments instantly with
               verified healthcare professionals.
@@ -82,11 +82,8 @@ export default function Home() {
 
             {/* Search Interface */}
             <Card className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 text-gray-900 max-w-2xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                <div className="relative">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Specialty
-                  </label>
+              <div className="grid gap-4 mb-6">
+                <div className="relative">                 
                   <Select
                     value={searchFilters.specialty}
                     onValueChange={(value) =>
@@ -108,23 +105,7 @@ export default function Home() {
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="relative">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Location
-                  </label>
-                  <Input
-                    type="text"
-                    placeholder="Enter city or zip code"
-                    value={searchFilters.location}
-                    onChange={(e) =>
-                      setSearchFilters((prev) => ({
-                        ...prev,
-                        location: e.target.value,
-                      }))
-                    }
-                    className="w-full"
-                  />
-                </div>
+        
               </div>
               <Button
                 onClick={handleSearch}
@@ -138,50 +119,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Doctors */}
-      <section className="py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Featured Healthcare Providers
-            </h2>
-            <p className="text-lg text-slate-gray max-w-2xl mx-auto">
-              Discover top-rated doctors in your area, verified and recommended
-              by our community
-            </p>
-          </div>
-
-          {isLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[...Array(6)].map((_, i) => (
-                <Card key={i} className="overflow-hidden">
-                  <Skeleton className="w-full h-48" />
-                  <CardContent className="p-6">
-                    <Skeleton className="h-6 w-3/4 mb-2" />
-                    <Skeleton className="h-4 w-1/2 mb-4" />
-                    <div className="space-y-2">
-                      <Skeleton className="h-4 w-full" />
-                      <Skeleton className="h-4 w-full" />
-                      <Skeleton className="h-4 w-3/4" />
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {doctors.map((doctor) => (
-                <DoctorCard
-                  key={doctor.id}
-                  doctor={doctor}
-                  nextAvailable="Today 2:30 PM"
-                  onBookNow={handleBookNow}
-                />
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
+   
 
       {/* Features Section */}
       <section className="py-16 md:py-20 bg-white">
