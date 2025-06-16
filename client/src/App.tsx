@@ -8,6 +8,7 @@ import { Footer } from "@/components/footer";
 import Home from "@/pages/home";
 import Booking from "@/pages/booking";
 import Appointments from "@/pages/appointments";
+import Doctors from "@/pages/doctors";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -16,6 +17,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/booking/:doctorId" component={Booking} />
       <Route path="/appointments" component={Appointments} />
+      <Route path="/doctors" component={Doctors} />
       <Route component={NotFound} />
     </Switch>
   );
